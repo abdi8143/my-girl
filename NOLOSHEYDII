@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website-kayga Sawirrada</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px; }
+        h1 { color: #333; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+        .gallery img { width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <h1>Ku soo dhowow Website-kayga Sawirrada</h1>
+    <p>Halkan ka daawo shanta sawir ee aan leeyahay:</p>
+
+    <div class="gallery">
+        <!-- Hubi in magacyada sawirradaada halkan ku qoran ay la mid yihiin kuwa aad soo gelisay -->
+        <img src="1.jpg" alt="Sawirka 1aad">
+        <img src="2.jpg" alt="Sawirka 2aad">
+        <img src="3.jpg" alt="Sawirka 3aad">
+        <img src="4.jpg" alt="Sawirka 4aad">
+        <img src="5.jpg" alt="Sawirka 5aad">
+    </div>
+
+</body>
+</html>
