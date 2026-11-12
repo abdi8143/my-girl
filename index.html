@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100b12">
+  <title>Abdi & Najma | Our Memories</title>
+  <style>
+    :root{--bg:#100b12;--panel:#1b121d;--pink:#f18ab9;--soft:#ffd4e7;--muted:#c7aebb}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at top,#321729 0,#100b12 48%);color:#fff;font-family:Georgia,'Times New Roman',serif}
+    .wrap{width:min(1100px,92%);margin:auto}
+    header{min-height:340px;display:grid;place-items:center;text-align:center;padding:64px 16px 48px}
+    .heart{font-size:30px;color:var(--pink);letter-spacing:8px}
+    h1{font-size:clamp(42px,8vw,76px);margin:12px 0;color:var(--soft);font-weight:500}
+    .subtitle{font:15px/1.7 Arial,sans-serif;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+    .rule{width:90px;height:2px;background:var(--pink);margin:25px auto}
+    .intro{max-width:590px;margin:auto;color:#e8d7e0;font:16px/1.8 Arial,sans-serif}
+    section{padding:25px 0 55px}
+    h2{text-align:center;color:var(--soft);font-size:30px;font-weight:500;margin:12px 0 8px}
+    .hint{text-align:center;color:var(--muted);font:13px Arial,sans-serif;margin:0 0 28px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .photo{margin:0;background:var(--panel);padding:8px;border:1px solid #563047;border-radius:15px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s}
+    .photo:hover{transform:translateY(-4px);border-color:var(--pink)}
+    .photo img{display:block;width:100%;height:300px;object-fit:cover;border-radius:9px}
+    .photo figcaption{text-align:center;color:#f3c5da;font:13px Arial,sans-serif;padding:11px 4px 5px}
+    .video-box{max-width:650px;margin:25px auto 0;background:var(--panel);border:1px solid #563047;padding:10px;border-radius:16px}
+    video{display:block;width:100%;max-height:480px;background:#000;border-radius:10px}
+    footer{text-align:center;padding:32px 12px 45px;color:var(--muted);font:13px Arial,sans-serif}
+    footer span{color:var(--pink)}
+    .lightbox{display:none;position:fixed;inset:0;background:#050307ed;z-index:5;align-items:center;justify-content:center;padding:20px}
+    .lightbox.show{display:flex}.lightbox img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:10px}
+    .close{position:absolute;top:15px;right:22px;border:0;background:#2a1827;color:#fff;font-size:30px;border-radius:50%;width:46px;height:46px;cursor:pointer}
+    @media(max-width:560px){header{min-height:300px;padding-top:50px}.photo img{height:270px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo{padding:6px}.photo img{height:220px}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div>
+      <div class="heart">♥ ✦ ♥</div>
+      <h1>Abdi &amp; Najma</h1>
+      <div class="subtitle">Our Beautiful Memories</div>
+      <div class="rule"></div>
+      <p class="intro">A little collection of photos and moments worth remembering.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <section aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Our Photo Gallery <span style="color:#f18ab9">♥</span></h2>
+      <p class="hint">Tap any photo to view it larger</p>
+      <div class="gallery">
+        <figure class="photo"><img src="assets/photo-01.jpg" alt="Abdi playing football" loading="lazy"><figcaption>One of my moments</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-02.jpg" alt="Najma portrait" loading="lazy"><figcaption>A lovely memory</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-03.jpg" alt="Najma portrait outdoors" loading="lazy"><figcaption>Beautiful moments</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-04.jpg" alt="Abdi and Najma together" loading="lazy"><figcaption>A moment together</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-05.jpg" alt="Abdi and Najma together" loading="lazy"><figcaption>One to remember</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-06.jpg" alt="Photo collage of Abdi and Najma" loading="lazy"><figcaption>Memories</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-07.jpg" alt="Najma outdoors with a cat" loading="lazy"><figcaption>A sweet moment</figcaption></figure>
+        <figure class="photo"><img src="assets/photo-08.jpg" alt="A video-call memory" loading="lazy"><figcaption>A little memory</figcaption></figure>
+      </div>
+    </section>
+    <section aria-labelledby="video-title">
+      <h2 id="video-title">Video Memories <span style="color:#f18ab9">♥</span></h2>
+      <p class="hint">A video you shared</p>
+      <div class="video-box"><video controls preload="metadata" playsinline><source src="assets/our-video.mp4" type="video/mp4">Your browser does not support video playback.</video></div>
+    </section>
+  </main>
+  <footer>Made with care for <span>Abdi &amp; Najma ♥</span></footer>
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Expanded photo" aria-modal="true">
+    <button class="close" id="close" aria-label="Close">×</button><img id="largePhoto" alt="Expanded memory">
+  </div>
+  <script>
+    const box=document.getElementById('lightbox'),large=document.getElementById('largePhoto');
+    document.querySelectorAll('.photo img').forEach(img=>img.addEventListener('click',()=>{large.src=img.src;large.alt=img.alt;box.classList.add('show')}));
+    function closeBox(){box.classList.remove('show');large.src=''}
+    document.getElementById('close').addEventListener('click',closeBox);
+    box.addEventListener('click',e=>{if(e.target===box)closeBox()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+  </script>
+</body>
+</html>
